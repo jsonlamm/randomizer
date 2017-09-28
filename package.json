@@ -1,0 +1,31 @@
+{
+  "name": "auto-app",
+  "version": "1.0.0",
+  "description": "automagics",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.0",
+    "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "start": "webpack -w & nodemon --watch server -e js,html server/index.js",
+    "serve": "live-server public/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "bas": "webpack --watch & live-server public/"
+  },
+  "author": "Jason Lam",
+  "license": "MIT"
+}
