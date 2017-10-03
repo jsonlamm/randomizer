@@ -22194,10 +22194,7 @@ var Action = function (_Component) {
 
 
 		value: function render() {
-			// const options = this.props.options
-			// console.log('state.options : ', state.options)
-			// let options = state.options
-			// const props = this.props;
+			var props = this.props;
 
 			return _react2.default.createElement(
 				'div',
@@ -22205,8 +22202,8 @@ var Action = function (_Component) {
 				_react2.default.createElement(
 					'button',
 					{
-						disabled: this.props.hasOptions,
-						onClick: this.props.handleChooser
+						disabled: props.hasOptions,
+						onClick: props.handleChooser
 					},
 					'Choose for me!'
 				)
@@ -22314,7 +22311,7 @@ var Options = function (_Component2) {
 						return _react2.default.createElement(Option, { key: option, option: option });
 					})
 				),
-				this.props.error && _react2.default.createElement(
+				props.error && _react2.default.createElement(
 					'p',
 					null,
 					' ',

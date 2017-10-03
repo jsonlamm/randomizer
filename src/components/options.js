@@ -35,7 +35,7 @@ export class Option extends Component {
 
 class Options extends Component {
 	render() {
-		let props = this.props
+		let props = this.props;
 
 		return (
 			<div>
@@ -49,7 +49,7 @@ class Options extends Component {
 						props.options.map((option) => <Option key={option} option={option} />)
 					}
 				</ol>
-				{this.props.error && <p> {this.state.error}</p>}
+				{props.error && <p> {this.state.error}</p>}
 
 			</div>
 		);

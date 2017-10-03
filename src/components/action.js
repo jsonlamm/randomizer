@@ -15,16 +15,13 @@ class Action extends Component {
 
 
 	render() {
-		// const options = this.props.options
-		// console.log('state.options : ', state.options)
-		// let options = state.options
-		// const props = this.props;
+		let props = this.props;
 
 		return (
 			<div>
 				<button
-					disabled={this.props.hasOptions}
-					onClick={this.props.handleChooser}
+					disabled={props.hasOptions}
+					onClick={props.handleChooser}
 				>Choose for me!
 				</button>
 			</div>
