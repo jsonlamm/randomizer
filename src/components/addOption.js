@@ -43,7 +43,7 @@ class AddOption extends Component {
 					<input type="text" name="option" />
 					<button>Add Option</button>
 				</form>
-
+				{this.state.error && <p key={this.state.error} > {this.state.error}</p>}
 			</div>
 		);
 	}
