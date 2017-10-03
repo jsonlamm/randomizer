@@ -9853,11 +9853,8 @@ var Main = function (_Component) {
 				newlyTypedOption = 'The option you\'ve entered is already on the list!';
 			}
 
-			// console.log('newlyTypedOption : ', newlyTypedOption)
-
 			if (newlyTypedOption) {
 				this.setState(function (prev, curr) {
-					// console.log('currState : ', currState)
 					var prevOptions = prev.options;
 					return {
 						options: [].concat(_toConsumableArray(prev.options), [newlyTypedOption])
@@ -9869,9 +9866,7 @@ var Main = function (_Component) {
 		key: 'handleChooser',
 		value: function handleChooser() {
 			// SETUP
-			// const options = this.props.options
-			// console.log('this.props FROM OPTIONS : ', this.props)
-			// const randomNum = Math.floor(Math.random() * 10)
+
 			var randomOptNum = Math.floor(Math.random() * this.optionsLength());
 			var randomOpt = this.state.options[randomOptNum];
 			alert(randomOpt);
@@ -22620,9 +22615,7 @@ var Options = function (_Component2) {
 		key: 'render',
 		value: function render() {
 			var props = this.props;
-			console.log('optionS props.options : ', props.options);
-			// 		let options = props.options
-			// console.log('options from OptionS: ', options)
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -22678,8 +22671,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import { thing } from './options'
-
 var AddOption = function (_Component) {
 	_inherits(AddOption, _Component);
 
@@ -22730,8 +22721,6 @@ var AddOption = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			// let props = this.props
-			// console.log('add option props : ', props)
 			return _react2.default.createElement(
 				'div',
 				null,

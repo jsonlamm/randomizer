@@ -36,9 +36,7 @@ export class Option extends Component {
 class Options extends Component {
 	render() {
 		let props = this.props
-		console.log('optionS props.options : ', props.options)
-		// 		let options = props.options
-		// console.log('options from OptionS: ', options)
+
 		return (
 			<div>
 				<p>{
