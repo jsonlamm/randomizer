@@ -68,11 +68,9 @@ class Main extends Component {
 
 	// hasOptions is V1 and hasNoOptions is V2, but probably should stick with one version
 	render() {
-		console.log('this.optionsLength : ', this.optionsLength)
-		console.log('this.optionsLength() : ', this.optionsLength())
 		return (
 			<div>
-				<Header />
+				<Header title={'Chores Roulette'} subtitle={'We\'ll choose your next chore for you!'} />
 				<Action
 					hasOptions={this.optionsLength() < 1}
 					options={this.state.options}
