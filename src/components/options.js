@@ -49,7 +49,6 @@ class Options extends Component {
 						props.options.map((option) => <Option key={option} option={option} />)
 					}
 				</ol>
-				{props.error && <p> {this.state.error}</p>}
 
 			</div>
 		);
