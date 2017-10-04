@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import { thing } from './options'
-
 class AddOption extends Component {
 	constructor(props) {
 		super(props);
@@ -39,15 +37,13 @@ class AddOption extends Component {
 	// 	}
 	// }
 	render() {
-		// let props = this.props
-		// console.log('add option props : ', props)
 		return (
 			<div>
 				<form onSubmit={this.handleOptionChecker}>
 					<input type="text" name="option" />
 					<button>Add Option</button>
 				</form>
-				
+				{this.state.error && <p key={this.state.error} > {this.state.error}</p>}
 			</div>
 		);
 	}

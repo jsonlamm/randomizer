@@ -8,7 +8,6 @@ import AddOption from './components/addOption.js'
 import ClearAll from './components/clearAll.js'
 
 
-
 class Main extends Component {
 	constructor(props) {
 		super(props)
@@ -37,17 +36,14 @@ class Main extends Component {
 	handleAddOption(newlyTypedOption) {
 
 		if (!newlyTypedOption) {
-			newlyTypedOption =  'Please enter a valid option';
+			return 'Please enter a valid option';
 
 		} else if (this.state.options.indexOf(newlyTypedOption) > -1) {
-			newlyTypedOption =  'The option you\'ve entered is already on the list!'
+			return 'The option you\'ve entered is already on the list!'
 		}
-
-		// console.log('newlyTypedOption : ', newlyTypedOption)
 
 		if (newlyTypedOption) {
 			this.setState((prev, curr) => {
-				// console.log('currState : ', currState)
 				let prevOptions = prev.options
 				return {
 					options: [...prev.options, newlyTypedOption]
@@ -59,9 +55,7 @@ class Main extends Component {
 
 	handleChooser() {
 		// SETUP
-		// const options = this.props.options
-		// console.log('this.props FROM OPTIONS : ', this.props)
-		// const randomNum = Math.floor(Math.random() * 10)
+
 		const randomOptNum = Math.floor(Math.random() * this.optionsLength())
 		const randomOpt = this.state.options[randomOptNum]
 		alert(randomOpt)
@@ -93,6 +87,7 @@ class Main extends Component {
 					options={this.state.options}
 					handleAddOption={this.handleAddOption}
 				/>
+
 				<ClearAll
 					hasNoOptions={this.state.options.length < 1}
 					optionsLength={this.state.options.length}
