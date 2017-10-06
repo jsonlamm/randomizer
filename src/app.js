@@ -19,84 +19,80 @@ class Main extends Component {
 		this.handleAddOption = this.handleAddOption.bind(this);
 		// STATE
 		this.state = {
-			options: ['iou', 'moo']
+			options: props.options
 		}
 
 	}
 
 	// FUNCTIONS AS PROPS
-	handleClearAll() {
-		this.setState(() => {
-			return {
-				options: []
+	handleClearAll() { this.setState(() => ({ options: [] })) }
+
+		handleAddOption(newlyTypedOption) {
+
+			if (!newlyTypedOption) {
+				return 'Please enter a valid option';
+
+			} else if (this.state.options.indexOf(newlyTypedOption) > -1) {
+				return 'The option you\'ve entered is already on the list!'
 			}
-		})
-	}
 
-	handleAddOption(newlyTypedOption) {
+			if (newlyTypedOption) {
+				this.setState((prev, curr) => {
+					let prevOptions = prev.options
+					return {
+						options: [...prev.options, newlyTypedOption]
+					}
+				})
 
-		if (!newlyTypedOption) {
-			return 'Please enter a valid option';
-
-		} else if (this.state.options.indexOf(newlyTypedOption) > -1) {
-			return 'The option you\'ve entered is already on the list!'
+			}
 		}
 
-		if (newlyTypedOption) {
-			this.setState((prev, curr) => {
-				let prevOptions = prev.options
-				return {
-					options: [...prev.options, newlyTypedOption]
-				}
-			})
+		handleChooser() {
+			// SETUP
 
+			const randomOptNum = Math.floor(Math.random() * this.optionsLength())
+			const randomOpt = this.state.options[randomOptNum]
+			alert(randomOpt)
 		}
-	}
 
-	handleChooser() {
-		// SETUP
-
-		const randomOptNum = Math.floor(Math.random() * this.optionsLength())
-		const randomOpt = this.state.options[randomOptNum]
-		alert(randomOpt)
-	}
-
-	optionsLength() {
-		return this.state.options.length
-	}
+		optionsLength() {
+			return this.state.options.length
+		}
 
 
-	// hasOptions is V1 and hasNoOptions is V2, but probably should stick with one version
-	render() {
-		return (
-			<div>
-				<Header title={'Chores Roulette'} subtitle={'We\'ll choose your next chore for you!'} />
-				<Action
-					hasOptions={this.optionsLength() < 1}
-					options={this.state.options}
-					handleChooser={this.handleChooser}
-				/>
-				<Options
-					options={this.state.options} />
+		// hasOptions is V1 and hasNoOptions is V2, but probably should stick with one version
+		render() {
+			return (
+				<div>
+					<Header title={'Chores Roulette'} subtitle={'We\'ll choose your next chore for you!'} />
+					<Action
+						hasOptions={this.optionsLength() < 1}
+						options={this.state.options}
+						handleChooser={this.handleChooser}
+					/>
+					<Options
+						options={this.state.options} />
 
+					<AddOption
+						options={this.state.options}
+						handleAddOption={this.handleAddOption}
+					/>
 
-
-				<AddOption
-					options={this.state.options}
-					handleAddOption={this.handleAddOption}
-				/>
-
-				<ClearAll
-					hasNoOptions={this.state.options.length < 1}
-					optionsLength={this.state.options.length}
-					handleClearAll={this.handleClearAll}
-				/>
-			</div>
-		);
-	}
+					<ClearAll
+						hasNoOptions={this.state.options.length < 1}
+						optionsLength={this.state.options.length}
+						handleClearAll={this.handleClearAll}
+					/>
+				</div>
+			);
+		}
 }
 
-ReactDOM.render(<Main />, document.getElementById('app'))
+Main.defaultProps = {
+	options: ['Chore 1', 'Chore 2', 'Chore 3']
+}
+
+	ReactDOM.render(<Main />, document.getElementById('app'))
 
 // export default main;
 
