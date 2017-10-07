@@ -17,39 +17,28 @@ class Main extends Component {
 		this.handleChooser = this.handleChooser.bind(this);
 		this.optionsLength = this.optionsLength.bind(this);
 		this.handleAddOption = this.handleAddOption.bind(this);
+
 		// STATE
 		this.state = {
-			options: ['iou', 'moo']
+			options: props.options
 		}
 
 	}
 
 	// FUNCTIONS AS PROPS
-	handleClearAll() {
-		this.setState(() => {
-			return {
-				options: []
-			}
-		})
-	}
+	handleClearAll() { this.setState(() => ({ options: [] })) }
 
 	handleAddOption(newlyTypedOption) {
-
 		if (!newlyTypedOption) {
 			return 'Please enter a valid option';
-
-		} else if (this.state.options.indexOf(newlyTypedOption) > -1) {
+		} else if (this.state.options
+			.map(op => op.toLowerCase())
+			.indexOf(newlyTypedOption.toLowerCase()) > -1) {
 			return 'The option you\'ve entered is already on the list!'
 		}
 
 		if (newlyTypedOption) {
-			this.setState((prev, curr) => {
-				let prevOptions = prev.options
-				return {
-					options: [...prev.options, newlyTypedOption]
-				}
-			})
-
+			this.setState((prevState) => ({ options: [...prevState.options, newlyTypedOption] }))
 		}
 	}
 
@@ -79,8 +68,6 @@ class Main extends Component {
 				<Options
 					options={this.state.options} />
 
-
-
 				<AddOption
 					options={this.state.options}
 					handleAddOption={this.handleAddOption}
@@ -94,6 +81,10 @@ class Main extends Component {
 			</div>
 		);
 	}
+}
+
+Main.defaultProps = {
+	options: ['Chore 1', 'Chore 2', 'Chore 3']
 }
 
 ReactDOM.render(<Main />, document.getElementById('app'))

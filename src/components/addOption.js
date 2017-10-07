@@ -16,14 +16,12 @@ class AddOption extends Component {
 		const error = this.props.handleAddOption(newlyTypedOption)
 
 		if (error) {
-			this.setState(() => {
-				return { error }
-			})
+			this.setState(() => ({ error }))
 		}
 		evt.target.elements.option.value = ''
 	}
 
-	if (option) {
+	if(option) {
 		this.props.handleAddOption(option)
 	}
 	// onFormSubmit(evt) {
