@@ -17,8 +17,8 @@ class AddOption extends Component {
 
 		if (error) {
 			this.setState(() => ({ error }))
-			evt.target.elements.option.value = ''
 		}
+		evt.target.elements.option.value = ''
 	}
 
 	if(option) {
