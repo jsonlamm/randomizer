@@ -8,7 +8,7 @@ const Options = (props) => {
 				{
 					props.options.length > 0 ?
 						`There are ${props.options.length} options(s)` :
-						'There are no options'
+						'There are no options!'
 				}
 			</p>
 			<ol>

@@ -84,7 +84,7 @@ class Main extends Component {
 }
 
 Main.defaultProps = {
-	options: ['Chore 1', 'Chore 2', 'Chore 3']
+	options: ['Gym', 'Tanning', 'Laundry']
 }
 
 ReactDOM.render(<Main />, document.getElementById('app'))
